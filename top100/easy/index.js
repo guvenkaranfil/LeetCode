@@ -16,4 +16,25 @@ var twoSum = function (nums, target) {
   }
 };
 
-export { twoSum };
+import { LinkedListNode } from "../../dataStructures/linkedList";
+const addTwoNumbers = function (l1, l2) {
+  let head = new LinkedListNode();
+  let curr = head;
+
+  let carry = 0;
+  while (l1 || l2 || carry) {
+    let sum = (l1 ? l1.val : 0) + (l2 ? l2.val : 0) + carry;
+
+    carry = parseInt(sum / 10);
+    sum = sum % 10;
+    curr.next = new LinkedListNode(sum);
+
+    curr = curr.next;
+    l1 = l1 && l1.next;
+    l2 = l2 && l2.next;
+  }
+
+  return head.next;
+};
+
+export { twoSum, addTwoNumbers };
