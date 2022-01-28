@@ -16,5 +16,30 @@ var convert = function (s, numRows) {
   return res
 };
 
+var reverse = function (x) {
+  let MIN = -2147483648 // -2^31
+  let MAX = 2147483647  // 2^31 - 1
 
-export { convert }
+  let res = 0
+  while (x) {
+    let digit = x % 10;
+    x = parseInt(x / 10)
+
+    if (res > Math.floor(MAX / 10) ||
+      (res === Math.floor(MAX / 10) && digit >= MAX % 10)) {
+      return 0
+    }
+
+    if (res < Math.floor(MIN / 10) ||
+      (res == Math.floor(MIN / 10) && digit <= MIN % 10)) {
+      return 0
+    }
+
+    res = (res * 10) + digit
+  }
+
+  return res
+};
+
+
+export { convert, reverse }
