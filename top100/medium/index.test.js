@@ -1,4 +1,4 @@
-import { convert, intToRoman, isMatch, isPalindrome, maxArea, myAtoi, reverse, romanToInt } from './';
+import { convert, intToRoman, isMatch, isPalindrome, longestCommonPrefix, maxArea, myAtoi, reverse, romanToInt } from './';
 
 describe('6. Zigzag Conversion', () => {
     test('should return conversion', () => {
@@ -63,5 +63,13 @@ describe('13. Roman to Integer', () => {
         expect(romanToInt("III")).toBe(3)
         expect(romanToInt("LVIII")).toBe(58)
         expect(romanToInt("MCMXCIV")).toBe(1994)
+    });
+});
+
+
+describe('14. Longest Common Prefix', () => {
+    test('should return longest prefix', () => {
+        expect(longestCommonPrefix(["flower", "flow", "flight"])).toBe('fl')
+        expect(longestCommonPrefix(["dog","racecar","car"])).toBe('')
     });
 });
