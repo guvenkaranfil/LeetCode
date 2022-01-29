@@ -137,4 +137,32 @@ var isMatch = function (s, p) {
   return dfs(0, 0);
 };
 
-export { convert, reverse, myAtoi, isPalindrome, isMatch }
+var maxArea = function (height) {
+  /* Brute Force Solution */
+  // let res = 0;
+
+  // for (let l = 0; l < height.length; l++) {
+  //   for (let r = l + 1; r < height.length; r++) {
+  //     let area = (r - l) * Math.min(height[l], height[r])
+  //     res = Math.max(res, area)
+  //   }
+  // }
+
+  // return res
+
+  let res = 0
+  let l = 0
+  let r = height.length - 1
+
+  while (l < r) {
+    let area = (r - l) * Math.min(height[l], height[r])
+    res = Math.max(res, area)
+
+    if (height[l] < height[r]) { l += 1 }
+    else { r -= 1 }
+  }
+
+  return res
+};
+
+export { convert, reverse, myAtoi, isPalindrome, isMatch, maxArea }

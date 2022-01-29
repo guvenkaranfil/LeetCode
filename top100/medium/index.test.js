@@ -1,4 +1,4 @@
-import { convert, isMatch, isPalindrome, myAtoi, reverse } from './';
+import { convert, isMatch, isPalindrome, maxArea, myAtoi, reverse } from './';
 
 describe('6. Zigzag Conversion', () => {
     test('should return conversion', () => {
@@ -38,5 +38,12 @@ describe('10. Regular Expression Matching', () => {
     test('should check given string and path are matching or not', () => {
         expect(isMatch("aa", "a")).toBe(false);
         expect(isMatch("aa", "a*")).toBe(true);
+    });
+});
+
+describe('11. Container With Most Water', () => {
+    test('should calculate max area', () => {
+        expect(maxArea([1,8,6,2,5,4,8,3,7])).toBe(49)
+        expect(maxArea([1,1])).toBe(1)
     });
 });
