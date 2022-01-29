@@ -245,6 +245,41 @@ var longestCommonPrefix = function (strs) {
   return res;
 };
 
+var threeSum = function (nums) {
+  nums.sort();
+
+  let res = [];
+  for (let i = 0; i < nums.length; i++) {
+    let num = nums[i];
+
+    if (i > 0 && num == nums[i - 1]) {
+      continue;
+    }
+
+    let l = i + 1;
+    let r = nums.length - 1;
+
+    while (r > l) {
+      let threeSum = num + nums[l] + nums[r];
+
+      if (threeSum > 0) {
+        r -= 1;
+      } else if (threeSum < 0) {
+        l += 1;
+      } else {
+        res.push([num, nums[l], nums[r]]);
+
+        l += 1;
+        while (nums[l] == nums[l - 1] && r > l) {
+          l += 1;
+        }
+      }
+    }
+  }
+
+  return res;
+};
+
 export {
   convert,
   reverse,
@@ -255,4 +290,5 @@ export {
   intToRoman,
   romanToInt,
   longestCommonPrefix,
+  threeSum,
 };

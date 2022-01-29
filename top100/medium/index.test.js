@@ -80,3 +80,13 @@ describe("14. Longest Common Prefix", () => {
   });
 });
 
+describe("15. 3Sum", () => {
+  test("should return the sum 0 of there sub arrays", () => {
+    expect(threeSum([-1, 0, 1, 2, -1, -4])).toEqual([
+      [-1, -1, 2],
+      [-1, 0, 1],
+    ]);
+    expect(threeSum([])).toEqual([])
+    expect(threeSum([])).toEqual([])
+  });
+});
