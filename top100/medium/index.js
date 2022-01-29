@@ -41,5 +41,49 @@ var reverse = function (x) {
   return res
 };
 
+var myAtoi = function (s) {
+  /*
+    1- Whitespace
+    2- +/- symbol
+    3- check number digits (0-9)
+    4- Check the MAX / MIN
+  */
 
-export { convert, reverse }
+  let MIN_INT =  -(2 ** 31)
+  let MAX_INT = 2 ** 31 - 1
+
+  let i = 0
+  let res = 0
+  let negative = 1
+
+  // 1. Whitespace
+  while (i < s.length && s[i] == ' ') {
+    i += 1
+  }
+
+  // 2. + / - symbol
+  if (i < s.length && s[i] == '-') {
+    i += 1
+    negative = -1
+  } else if (i < s.length && s[i] == '+') {
+    i += 1
+  }
+
+  // 3. Check number digits
+  let digits = new Set('0123456789')
+  while (i < s.length && digits.has(s[i])) {
+    res = res * 10 + parseInt(s[i])
+    i += 1
+  }
+
+  // 4. Check the MAX / MIN int
+  res = res * negative
+  if (res < 0) {
+    return Math.max(res, MIN_INT)
+  }
+
+  return Math.min(res, MAX_INT)
+};
+
+
+export { convert, reverse, myAtoi }
