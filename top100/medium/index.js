@@ -194,4 +194,4 @@ var intToRoman = function (num) {
   return res
 };
 
-export { convert, reverse, myAtoi, isPalindrome, isMatch, maxArea, intToRoman, romanToInt }
+export { convert, reverse, myAtoi, isPalindrome, isMatch, maxArea, intToRoman}
