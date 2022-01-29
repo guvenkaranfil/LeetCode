@@ -108,7 +108,11 @@ var isPalindrome = function (x) {
 };
 
 var isMatch = function (s, p) {
+  let cache = new Map();
+
   function dfs(i, j) {
+    if (cache.has(`${i}:${j}`)) return cache.get(`${i}:${j}`)
+
     if (i >= s.length && j >= p.length) return true
 
     if (j >= p.length) return false
@@ -116,13 +120,16 @@ var isMatch = function (s, p) {
     let match = i < s.length && (s[i] === p[j] || p[j] === '.')
 
     if (j + 1 < p.length && p[j + 1] === '*') {
-      return (dfs(i, j + 2) || match && dfs(i + 1, j))
+      cache.set(`${i}:${j}`, (dfs(i, j + 2) || match && dfs(i + 1, j)))
+      return cache.get(`${i}:${j}`)
     }
 
     if (match) {
-      return dfs(i + 1, j + 1)
+      cache.set(`${i}:${j}`, dfs(i + 1, j + 1))
+      return cache.get(`${i}:${j}`)
     }
 
+    cache.set(`${i}:${j}`, false)
     return false
   }
 
