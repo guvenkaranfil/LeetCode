@@ -49,7 +49,7 @@ var myAtoi = function (s) {
     4- Check the MAX / MIN
   */
 
-  let MIN_INT =  -(2 ** 31)
+  let MIN_INT = -(2 ** 31)
   let MAX_INT = 2 ** 31 - 1
 
   let i = 0
@@ -85,5 +85,49 @@ var myAtoi = function (s) {
   return Math.min(res, MAX_INT)
 };
 
+var isPalindrome = function (x) {
+  if (x < 0) return false
 
-export { convert, reverse, myAtoi }
+  let divider = 1
+  while (x >= 10 * divider) {
+    divider = divider * 10
+  }
+
+  while (x > 0) {
+    // let r = x % 10;
+    // let l = Math.floor(x / divider)
+
+    if (x % 10 != Math.floor(x / divider)) return false;
+
+    x = x % divider
+    x = Math.floor(x / 10)
+    divider = divider / 100
+  }
+
+  return true;
+};
+
+var isMatch = function (s, p) {
+  function dfs(i, j) {
+    if (i >= s.length && j >= p.length) return true
+
+    if (j >= p.length) return false
+
+    let match = i < s.length && (s[i] === p[j] || p[j] === '.')
+
+    if (j + 1 < p.length && p[j + 1] === '*') {
+      return (dfs(i, j + 2) || match && dfs(i + 1, j))
+    }
+
+    if (match) {
+      return dfs(i + 1, j + 1)
+    }
+
+    return false
+  }
+
+
+  return dfs(0, 0);
+};
+
+export { convert, reverse, myAtoi, isPalindrome, isMatch }

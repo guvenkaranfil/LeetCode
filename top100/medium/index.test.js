@@ -1,4 +1,4 @@
-import { convert, myAtoi, reverse } from './';
+import { convert, isMatch, isPalindrome, myAtoi, reverse } from './';
 
 describe('6. Zigzag Conversion', () => {
     test('should return conversion', () => {
@@ -21,5 +21,22 @@ describe('8. String to Integer (atoi)', () => {
         expect(myAtoi("42")).toBe(42);
         expect(myAtoi("   -42")).toBe(-42);
         expect(myAtoi("4193 with words")).toBe(4193);
+    });
+});
+
+describe('9. Palindrome Number', () => {
+    test('should check given number is palindrome or not', () => {
+        expect(isPalindrome(121)).toBe(true);
+        expect(isPalindrome(-121)).toBe(false);
+        expect(isPalindrome(10)).toBe(false);
+        expect(isPalindrome(1221)).toBe(true);
+    });
+});
+
+
+describe('10. Regular Expression Matching', () => {
+    test('should check given string and path are matching or not', () => {
+        expect(isMatch("aa", "a")).toBe(false);
+        expect(isMatch("aa", "a*")).toBe(true);
     });
 });
