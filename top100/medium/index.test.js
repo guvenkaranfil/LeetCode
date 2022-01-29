@@ -51,9 +51,9 @@ describe('11. Container With Most Water', () => {
 
 describe('12. Integer to Roman', () => {
     test('should return converted roman number', () => {
-        // expect(intToRoman(3)).toBe("III");
-        // expect(intToRoman(58)).toBe("LVIII");
-        // expect(intToRoman(1994)).toBe("MCMXCIV");
+        expect(intToRoman(3)).toBe("III");
+        expect(intToRoman(58)).toBe("LVIII");
+        expect(intToRoman(1994)).toBe("MCMXCIV");
         expect(intToRoman(6)).toBe("VI");
     });
 });

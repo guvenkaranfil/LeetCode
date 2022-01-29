@@ -187,7 +187,6 @@ var intToRoman = function (num) {
     let count = Math.floor(num / val)
     if (count) {
       res += sym.repeat(count)
-      console.log('num % val:', num % val);
       num = num % val
     }
   }
@@ -195,4 +194,4 @@ var intToRoman = function (num) {
   return res
 };
 
-export { convert, reverse, myAtoi, isPalindrome, isMatch, maxArea, intToRoman }
+export { convert, reverse, myAtoi, isPalindrome, isMatch, maxArea, intToRoman, romanToInt }
