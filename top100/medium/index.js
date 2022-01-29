@@ -194,4 +194,34 @@ var intToRoman = function (num) {
   return res
 };
 
-export { convert, reverse, myAtoi, isPalindrome, isMatch, maxArea, intToRoman}
+
+var romanToInt = function (s) {
+  let symList = new Map()
+  symList.set('I', 1)
+  symList.set('IV', 4)
+  symList.set('V', 5)
+  symList.set('IX', 9)
+  symList.set('X', 10)
+  symList.set('XL', 40)
+  symList.set('L', 50)
+  symList.set('XC', 90)
+  symList.set('C', 100)
+  symList.set('CD', 400)
+  symList.set('D', 500)
+  symList.set('CM', 900)
+  symList.set('M', 1000)
+
+  let res = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (symList.has(s.substring(i, i + 2))) {
+      res += symList.get(s.substring(i, i + 2))
+      i++
+    } else if (symList.has(s[i])) {
+      res += symList.get(s[i])
+    }
+  }
+
+  return res
+};
+
+export { convert, reverse, myAtoi, isPalindrome, isMatch, maxArea, intToRoman, romanToInt }

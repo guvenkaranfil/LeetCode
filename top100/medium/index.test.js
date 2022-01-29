@@ -1,4 +1,4 @@
-import { convert, intToRoman, isMatch, isPalindrome, maxArea, myAtoi, reverse } from './';
+import { convert, intToRoman, isMatch, isPalindrome, maxArea, myAtoi, reverse, romanToInt } from './';
 
 describe('6. Zigzag Conversion', () => {
     test('should return conversion', () => {
@@ -55,5 +55,13 @@ describe('12. Integer to Roman', () => {
         expect(intToRoman(58)).toBe("LVIII");
         expect(intToRoman(1994)).toBe("MCMXCIV");
         expect(intToRoman(6)).toBe("VI");
+    });
+});
+
+describe('13. Roman to Integer', () => {
+    test('should return converted integer number', () => {
+        expect(romanToInt("III")).toBe(3)
+        expect(romanToInt("LVIII")).toBe(58)
+        expect(romanToInt("MCMXCIV")).toBe(1994)
     });
 });
