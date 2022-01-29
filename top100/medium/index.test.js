@@ -1,4 +1,4 @@
-import { convert, isMatch, isPalindrome, maxArea, myAtoi, reverse } from './';
+import { convert, intToRoman, isMatch, isPalindrome, maxArea, myAtoi, reverse } from './';
 
 describe('6. Zigzag Conversion', () => {
     test('should return conversion', () => {
@@ -43,7 +43,17 @@ describe('10. Regular Expression Matching', () => {
 
 describe('11. Container With Most Water', () => {
     test('should calculate max area', () => {
-        expect(maxArea([1,8,6,2,5,4,8,3,7])).toBe(49)
-        expect(maxArea([1,1])).toBe(1)
+        expect(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7])).toBe(49)
+        expect(maxArea([1, 1])).toBe(1)
+    });
+});
+
+
+describe('12. Integer to Roman', () => {
+    test('should return converted roman number', () => {
+        // expect(intToRoman(3)).toBe("III");
+        // expect(intToRoman(58)).toBe("LVIII");
+        // expect(intToRoman(1994)).toBe("MCMXCIV");
+        expect(intToRoman(6)).toBe("VI");
     });
 });
