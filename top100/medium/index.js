@@ -1,3 +1,23 @@
+const lengthOfLongestSubstring = function (s) {
+  let aPointer = 0;
+  let bPointer = 0;
+  let max = 0;
+
+  const characters = new Set();
+
+  while (bPointer < s.length) {
+    if (!characters.has(s[bPointer])) {
+      characters.add(s[bPointer]);
+      bPointer++;
+      max = Math.max(characters.size, max);
+    } else {
+      characters.delete(s[aPointer]);
+      aPointer++;
+    }
+  }
+  return max;
+};
+
 var convert = function (s, numRows) {
   if (numRows === 1) return s;
 
@@ -366,6 +386,7 @@ var letterCombinations = function (digits) {
 };
 
 export {
+  lengthOfLongestSubstring,
   convert,
   reverse,
   myAtoi,

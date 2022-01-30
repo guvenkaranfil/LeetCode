@@ -4,6 +4,7 @@ import {
   isMatch,
   isPalindrome,
   isValid,
+  lengthOfLongestSubstring,
   letterCombinations,
   longestCommonPrefix,
   maxArea,
@@ -13,6 +14,12 @@ import {
   threeSum,
   threeSumClosest,
 } from "./";
+
+describe("3. Longest Substring Without Repeating Characters", () => {
+  test("should return longest non repeating character", () => {
+    expect(lengthOfLongestSubstring("abcabcbb")).toBe(3);
+  });
+});
 
 describe("6. Zigzag Conversion", () => {
   test("should return conversion", () => {
@@ -124,7 +131,7 @@ describe("17. Letter Combinations of a Phone Number", () => {
       "ce",
       "cf",
     ]);
-    expect(letterCombinations("")).toEqual([])
-    expect(letterCombinations("2")).toEqual(["a","b","c"])
+    expect(letterCombinations("")).toEqual([]);
+    expect(letterCombinations("2")).toEqual(["a", "b", "c"]);
   });
 });
