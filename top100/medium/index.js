@@ -334,6 +334,38 @@ var isValid = function (s) {
   return !stack.length ? true : false;
 };
 
+var letterCombinations = function (digits) {
+  if (digits.length === 0) return [];
+
+  let res = [];
+  let digitToChar = {
+    2: "abc",
+    3: "def",
+    4: "ghi",
+    5: "jkl",
+    6: "mno",
+    7: "qprs",
+    8: "tuv",
+    9: "wxyz",
+  };
+
+  function backtrack(i, currentStr) {
+    if (currentStr.length === digits.length) {
+      console.log("currentStr:", currentStr);
+      res.push(currentStr);
+      return;
+    }
+
+    for (let c of digitToChar[digits[i]]) {
+      backtrack(i + 1, currentStr + c);
+    }
+  }
+
+  backtrack(0, "");
+
+  return res;
+};
+
 export {
   convert,
   reverse,
@@ -347,4 +379,5 @@ export {
   threeSum,
   threeSumClosest,
   isValid,
+  letterCombinations,
 };

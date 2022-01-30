@@ -4,6 +4,7 @@ import {
   isMatch,
   isPalindrome,
   isValid,
+  letterCombinations,
   longestCommonPrefix,
   maxArea,
   myAtoi,
@@ -107,5 +108,23 @@ describe("20. Valid Parentheses", () => {
     expect(isValid("()")).toBe(true);
     expect(isValid("()[]{}")).toBe(true);
     expect(isValid("(]")).toBe(false);
+  });
+});
+
+describe("17. Letter Combinations of a Phone Number", () => {
+  test("should return possible letter combinations", () => {
+    expect(letterCombinations("23")).toEqual([
+      "ad",
+      "ae",
+      "af",
+      "bd",
+      "be",
+      "bf",
+      "cd",
+      "ce",
+      "cf",
+    ]);
+    expect(letterCombinations("")).toEqual([])
+    expect(letterCombinations("2")).toEqual(["a","b","c"])
   });
 });
