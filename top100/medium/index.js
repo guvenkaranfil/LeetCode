@@ -18,6 +18,58 @@ const lengthOfLongestSubstring = function (s) {
   return max;
 };
 
+const findMedianforOneArray = (arr) => {
+  if (arr.length % 2 === 0) {
+    return (
+      (arr[Math.floor(arr.length / 2 - 1)] + arr[Math.floor(arr.length / 2)]) /
+      2
+    );
+  } else {
+    return arr[Math.floor(arr.length / 2)];
+  }
+};
+const findMedianSortedArrays = function (nums1, nums2) {
+  if (nums1.length === 0 || nums2.length === 0) {
+    return findMedianforOneArray(nums1.length === 0 ? nums2 : nums1);
+  }
+
+  let A = nums1;
+  let B = nums2;
+  let total = nums1.length + nums2.length;
+  let half = Math.floor(total / 2);
+
+  if (nums1.length > nums2.length) {
+    A = nums2;
+    B = nums1;
+  }
+
+  let l = 0;
+  let r = A.length - 1;
+  while (true) {
+    let i = Math.floor((l + r) / 2);
+    let j = half - i - 2;
+
+    let Aleft = i >= 0 ? A[i] : -Infinity;
+    let Aright = i + 1 < A.length ? A[i + 1] : Infinity;
+    let BLeft = j >= 0 ? B[j] : -Infinity;
+    let Bright = j + 1 < B.length ? B[j + 1] : Infinity;
+
+    // partition is correct
+    if (Aleft <= Bright && BLeft <= Aright) {
+      // odd
+      if (total % 2) {
+        return Math.min(Aright, Bright);
+      }
+
+      return (Math.max(Aleft, BLeft) + Math.min(Aright, Bright)) / 2;
+    } else if (Aleft > Bright) {
+      r = i - 1;
+    } else {
+      l = i + 1;
+    }
+  }
+};
+
 var convert = function (s, numRows) {
   if (numRows === 1) return s;
 
@@ -387,6 +439,7 @@ var letterCombinations = function (digits) {
 
 export {
   lengthOfLongestSubstring,
+  findMedianSortedArrays,
   convert,
   reverse,
   myAtoi,

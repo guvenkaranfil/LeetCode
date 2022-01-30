@@ -1,5 +1,6 @@
 import {
   convert,
+  findMedianSortedArrays,
   intToRoman,
   isMatch,
   isPalindrome,
@@ -18,6 +19,53 @@ import {
 describe("3. Longest Substring Without Repeating Characters", () => {
   test("should return longest non repeating character", () => {
     expect(lengthOfLongestSubstring("abcabcbb")).toBe(3);
+  });
+});
+
+describe("4. Median of Two Sorted Arrays", () => {
+  test("sample1", () => {
+    const nums1 = [1, 2, 3, 4, 5];
+    const nums2 = [1, 2, 3, 4, 5, 6, 7, 8];
+
+    const median = findMedianSortedArrays(nums1, nums2);
+
+    expect(median).toBe(4);
+  });
+
+  test("sample2", () => {
+    const nums1 = [1, 2, 3];
+    const nums2 = [4, 6, 7, 8, 9];
+
+    const median = findMedianSortedArrays(nums1, nums2);
+
+    expect(median).toBe(5);
+  });
+
+  test("sample3", () => {
+    const nums1 = [2, 3, 5, 7, 9];
+    const nums2 = [];
+
+    const median = findMedianSortedArrays(nums1, nums2);
+
+    expect(median).toBe(5);
+  });
+
+  test("sample4", () => {
+    const nums1 = [2, 4]; // 2,4,6,8
+    const nums2 = [];
+
+    const median = findMedianSortedArrays(nums1, nums2);
+
+    expect(median).toBe(3);
+  });
+
+  test("sample5", () => {
+    const nums1 = [2, 3]; // 2,4,6,8
+    const nums2 = [1];
+
+    const median = findMedianSortedArrays(nums1, nums2);
+
+    expect(median).toBe(2);
   });
 });
 
