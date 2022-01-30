@@ -9,6 +9,7 @@ import {
   reverse,
   romanToInt,
   threeSum,
+  threeSumClosest,
 } from "./";
 
 describe("6. Zigzag Conversion", () => {
@@ -86,7 +87,16 @@ describe("15. 3Sum", () => {
       [-1, -1, 2],
       [-1, 0, 1],
     ]);
-    expect(threeSum([])).toEqual([])
-    expect(threeSum([])).toEqual([])
+    expect(threeSum([])).toEqual([]);
+    expect(threeSum([])).toEqual([]);
+  });
+});
+
+describe("16. 3Sum Closest", () => {
+  test("should return closest target", () => {
+    expect(threeSumClosest([-1, 2, 1, -4], 1)).toBe(2);
+    expect(threeSumClosest([0, 0, 0], 1)).toBe(0);
+    expect(threeSumClosest([1, 1, 1, 0], -100)).toBe(2);
+    expect(threeSumClosest([1, 2, 4, 8, 16, 32, 64, 128], 82)).toBe(82);
   });
 });

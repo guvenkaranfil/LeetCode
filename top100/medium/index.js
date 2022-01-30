@@ -280,6 +280,38 @@ var threeSum = function (nums) {
   return res;
 };
 
+var threeSumClosest = function (nums, target) {
+  let res = nums[0] + nums[1] + nums[nums.length - 1];
+
+  nums = nums.sort((a, b) => a - b);
+
+  for (let i = 0; i < nums.length - 2; i++) {
+    let l = i + 1;
+    let r = nums.length - 1;
+
+    while (r > l) {
+      let threeSum = nums[i] + nums[l] + nums[r];
+
+      if (threeSum > target) {
+        r -= 1;
+      } else if (threeSum < target) {
+        l += 1;
+      } else {
+        l += 1;
+        while (nums[l] == nums[l - 1] && r > l) {
+          l += 1;
+        }
+      }
+
+      if (Math.abs(threeSum - target) < Math.abs(res - target)) {
+        res = threeSum;
+      }
+    }
+  }
+
+  return res;
+};
+
 export {
   convert,
   reverse,
@@ -291,4 +323,5 @@ export {
   romanToInt,
   longestCommonPrefix,
   threeSum,
+  threeSumClosest,
 };
