@@ -3,6 +3,7 @@ import {
   intToRoman,
   isMatch,
   isPalindrome,
+  isValid,
   longestCommonPrefix,
   maxArea,
   myAtoi,
@@ -98,5 +99,13 @@ describe("16. 3Sum Closest", () => {
     expect(threeSumClosest([0, 0, 0], 1)).toBe(0);
     expect(threeSumClosest([1, 1, 1, 0], -100)).toBe(2);
     expect(threeSumClosest([1, 2, 4, 8, 16, 32, 64, 128], 82)).toBe(82);
+  });
+});
+
+describe("20. Valid Parentheses", () => {
+  test("should check given parantheses are valid order or not", () => {
+    expect(isValid("()")).toBe(true);
+    expect(isValid("()[]{}")).toBe(true);
+    expect(isValid("(]")).toBe(false);
   });
 });

@@ -312,6 +312,28 @@ var threeSumClosest = function (nums, target) {
   return res;
 };
 
+var isValid = function (s) {
+  let stack = [];
+  let closeToOpen = new Map();
+  closeToOpen.set(")", "(");
+  closeToOpen.set("]", "[");
+  closeToOpen.set("}", "{");
+
+  for (let c of s) {
+    if (closeToOpen.has(c)) {
+      if (stack.length && stack[stack.length - 1] == closeToOpen.get(c)) {
+        stack.pop();
+      } else {
+        return false;
+      }
+    } else {
+      stack.push(c);
+    }
+  }
+
+  return !stack.length ? true : false;
+};
+
 export {
   convert,
   reverse,
@@ -324,4 +346,5 @@ export {
   longestCommonPrefix,
   threeSum,
   threeSumClosest,
+  isValid,
 };
