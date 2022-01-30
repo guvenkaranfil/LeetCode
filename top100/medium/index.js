@@ -351,7 +351,6 @@ var letterCombinations = function (digits) {
 
   function backtrack(i, currentStr) {
     if (currentStr.length === digits.length) {
-      console.log("currentStr:", currentStr);
       res.push(currentStr);
       return;
     }
