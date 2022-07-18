@@ -53,4 +53,27 @@ var longestSubstring = function (s, k) {
   return maxLen;
 };
 
-export { findMaxAverage, longestSubstring };
+var countGoodSubstrings = function (s) {
+  let max = 0;
+
+  const isUnique = (word) => {
+    const uniqueChars = new Set(word).size;
+
+    if (uniqueChars === 3) return true;
+
+    return false;
+  };
+
+  let left = 0;
+  let right = 3;
+  while (right <= s.length) {
+    if (isUnique(s.substring(left, right))) max++;
+
+    left++;
+    right++;
+  }
+
+  return max;
+};
+
+export { findMaxAverage, longestSubstring, countGoodSubstrings };

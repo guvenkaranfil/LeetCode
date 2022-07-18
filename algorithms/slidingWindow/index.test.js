@@ -1,4 +1,4 @@
-import { findMaxAverage, longestSubstring } from "./";
+import { findMaxAverage, longestSubstring, countGoodSubstrings } from "./";
 
 describe("Sliding Window", () => {
   test("findMaxAverage", () => {
@@ -11,5 +11,10 @@ describe("Sliding Window", () => {
   test("longestSubstring", () => {
     expect(longestSubstring("aaabb", 3)).toBe(3);
     expect(longestSubstring("pababbc", 2)).toBe(5);
+  });
+
+  test("countGoodSubstrings", () => {
+    expect(countGoodSubstrings("xyzzaz")).toBe(1);
+    expect(countGoodSubstrings("aababcabc")).toBe(4);
   });
 });
