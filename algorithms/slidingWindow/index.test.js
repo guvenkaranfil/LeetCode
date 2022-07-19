@@ -1,4 +1,9 @@
-import { findMaxAverage, longestSubstring, countGoodSubstrings } from "./";
+import {
+  findMaxAverage,
+  longestSubstring,
+  countGoodSubstrings,
+  minimumDifference,
+} from "./";
 
 describe("Sliding Window", () => {
   test("findMaxAverage", () => {
@@ -16,5 +21,12 @@ describe("Sliding Window", () => {
   test("countGoodSubstrings", () => {
     expect(countGoodSubstrings("xyzzaz")).toBe(1);
     expect(countGoodSubstrings("aababcabc")).toBe(4);
+  });
+
+  test("minimumDifference", () => {
+    expect(minimumDifference([9, 4, 1, 7], 2)).toBe(2);
+    expect(
+      minimumDifference([87063, 61094, 44530, 21297, 95857, 93551, 9918], 6)
+    ).toBe(74560);
   });
 });
