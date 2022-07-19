@@ -1,4 +1,4 @@
-import { twoSum, addTwoNumbers } from ".";
+import { twoSum, addTwoNumbers, removeElement } from ".";
 
 describe("1. Two Sum", () => {
   test("should get the target indices of [1,2] ", () => {
@@ -43,5 +43,9 @@ describe("2. Add Two Numbers", () => {
 
     const result = addTwoNumbers(list1, list2);
     expect(result).toEqual(resultLinkedList);
+  });
+
+  test("27. removeElement", () => {
+    expect(removeElement([3, 2, 2, 3], 3)).toBe(2);
   });
 });
