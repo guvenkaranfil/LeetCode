@@ -52,4 +52,28 @@ const merge = (list1, list2) => {
   return dummy.next;
 };
 
-export { sortList };
+var swapNodes = function (head, k) {
+  let fast = head;
+  let first,
+    second,
+    slow = head;
+
+  for (let i = 1; i < k; i++) {
+    fast = fast.next;
+  }
+
+  first = fast;
+
+  while (fast.next) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+  second = slow;
+
+  let temp = first.val;
+  first.val = second.val;
+  second.val = temp;
+
+  return head;
+};
+export { sortList, swapNodes };
