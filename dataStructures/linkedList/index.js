@@ -16,6 +16,17 @@ class LinkedList {
 
     return head;
   }
+
+  static printLinkedList(head) {
+    let list = [];
+
+    while (head) {
+      list.push(head.val);
+      head = head.next;
+    }
+
+    return list;
+  }
 }
 
 export { LinkedListNode, LinkedList };
