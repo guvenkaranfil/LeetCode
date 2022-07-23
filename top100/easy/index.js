@@ -47,8 +47,20 @@ var removeElement = function (nums, val) {
     }
   }
 
-  console.log("nums:", nums);
   return k;
 };
 
-export { twoSum, addTwoNumbers, removeElement };
+var removeDuplicates = function (nums) {
+  let k = 0;
+
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[k] !== nums[i]) {
+      k++;
+      nums[k] = nums[i];
+    }
+  }
+
+  return k + 1;
+};
+
+export { twoSum, addTwoNumbers, removeElement, removeDuplicates };

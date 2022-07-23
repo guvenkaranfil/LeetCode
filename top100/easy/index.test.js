@@ -1,4 +1,4 @@
-import { twoSum, addTwoNumbers, removeElement } from ".";
+import { twoSum, addTwoNumbers, removeElement, removeDuplicates } from ".";
 
 describe("1. Two Sum", () => {
   test("should get the target indices of [1,2] ", () => {
@@ -48,4 +48,8 @@ describe("2. Add Two Numbers", () => {
   test("27. removeElement", () => {
     expect(removeElement([3, 2, 2, 3], 3)).toBe(2);
   });
+});
+
+test("26. Remove Duplicates from Sorted Array", () => {
+  expect(removeDuplicates([1, 1, 2])).toBe(2);
 });
