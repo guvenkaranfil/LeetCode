@@ -1,3 +1,4 @@
+import { LinkedList } from "../../dataStructures/linkedList";
 import {
   convert,
   findMedianSortedArrays,
@@ -10,6 +11,7 @@ import {
   longestCommonPrefix,
   maxArea,
   myAtoi,
+  removeNthFromEnd,
   reverse,
   romanToInt,
   threeSum,
@@ -182,4 +184,16 @@ describe("17. Letter Combinations of a Phone Number", () => {
     expect(letterCombinations("")).toEqual([]);
     expect(letterCombinations("2")).toEqual(["a", "b", "c"]);
   });
+});
+
+test("19. Remove Nth Node From End of List", () => {
+  const linkedList = new LinkedList();
+  const list1 = linkedList.fromArray([1, 2, 3, 4, 5]);
+  const resultLinkedList = linkedList.fromArray([1, 2, 3, 5]);
+
+  expect(removeNthFromEnd(list1, 2)).toStrictEqual(resultLinkedList);
+
+  const list2 = linkedList.fromArray([1, 2]);
+  const resultLinkedList2 = linkedList.fromArray([2]);
+  expect(removeNthFromEnd(list2, 2)).toStrictEqual(resultLinkedList2);
 });

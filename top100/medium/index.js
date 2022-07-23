@@ -1,3 +1,5 @@
+import { LinkedList } from "../../dataStructures/linkedList";
+
 const lengthOfLongestSubstring = function (s) {
   let aPointer = 0;
   let bPointer = 0;
@@ -437,6 +439,57 @@ var letterCombinations = function (digits) {
   return res;
 };
 
+var removeNthFromEnd = function (head, n) {
+  if (!head.next) return head.next;
+
+  let current = head;
+  let listLength = 0;
+  while (current) {
+    listLength++;
+    current = current.next;
+  }
+
+  if (listLength - n === 0) {
+    return head.next;
+  }
+
+  current = head;
+  let count = 1;
+  while (current && current.next) {
+    if (listLength - n === count) {
+      current.next = current.next.next;
+    } else {
+      current = current.next;
+    }
+
+    count++;
+  }
+
+  return head;
+};
+
+// Two pointer approach
+// var removeNthFromEnd = function (head, n) {
+//   let start = new LinkedListNode();
+//   start.next = head;
+
+//   let fast = start;
+//   let slow = start;
+
+//   for (let i = 0; i < n; i++) {
+//     fast = fast.next;
+//   }
+
+//   while (fast && fast.next) {
+//     slow = slow.next;
+//     fast = fast.next;
+//   }
+
+//   slow.next = slow.next.next;
+
+//   return start.next;
+// };
+
 export {
   lengthOfLongestSubstring,
   findMedianSortedArrays,
@@ -453,4 +506,5 @@ export {
   threeSumClosest,
   isValid,
   letterCombinations,
+  removeNthFromEnd,
 };
