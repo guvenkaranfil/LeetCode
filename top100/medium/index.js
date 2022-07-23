@@ -490,6 +490,20 @@ var removeNthFromEnd = function (head, n) {
 //   return start.next;
 // };
 
+var swapPairs = function (head) {
+  let current = head;
+
+  while (current && current.next) {
+    let temp = current.val;
+    current.val = current.next.val;
+    current.next.val = temp;
+
+    current = current.next.next;
+  }
+
+  return head;
+};
+
 export {
   lengthOfLongestSubstring,
   findMedianSortedArrays,
@@ -507,4 +521,5 @@ export {
   isValid,
   letterCombinations,
   removeNthFromEnd,
+  swapPairs,
 };
