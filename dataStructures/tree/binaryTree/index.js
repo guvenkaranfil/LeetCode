@@ -57,17 +57,6 @@ class BinaryTree {
   }
 }
 
-// // var arr = [10, 5, 15, 3, 7, null, 18];
-// var arr = [10, 5, 15, 3, 7, 13, 18, 1, null, 6];
-// const binary = new BinaryTree();
-// const root = binary.fromArray(arr);
-
-// console.log(root);
-// console.log("second left:", root.left);
-// console.log("second left:", root.left.left.val);
-
-// console.log("binary to arr:", binary.binaryToArray(root, 10));
-
 var rangeSumBST = function (root, low, high) {
   let stack = [root];
 
@@ -92,10 +81,8 @@ var isCousins = function (root, x, y) {
 
   function dfs(node, parent, depth) {
     if (!node) {
-      console.log('finished!!!');
       return;
     }
-    console.log("val:", node.val);
 
     if (node.val === x || node.val === y) {
       parents.push(parent);
