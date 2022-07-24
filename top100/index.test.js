@@ -25,6 +25,7 @@ import {
   mergeKLists,
   mergeTwoLists,
   searchRange,
+  searchInsert,
 } from "./";
 
 describe("1. Two Sum", () => {
@@ -301,4 +302,10 @@ test("26. Remove Duplicates from Sorted Array", () => {
 test("34. Find First and Last Position of Element in Sorted Array", () => {
   expect(searchRange([5, 7, 7, 8, 8, 10], 8)).toStrictEqual([3, 4]);
   expect(searchRange([5, 7, 7, 8, 8, 10], 6)).toStrictEqual([-1, -1]);
+});
+
+test("35. Search Insert Position", () => {
+  expect(searchInsert([1, 3, 5, 6], 5)).toBe(2);
+  expect(searchInsert([1, 3, 5, 6], 2)).toBe(1);
+  expect(searchInsert([1, 3, 5, 6], 7)).toBe(4);
 });
