@@ -591,6 +591,51 @@ var fourSum = function (nums, target) {
   return res;
 };
 
+var mergeTwoLists = function (list1, list2) {
+  if (!list2) {
+    liste2 = new LinkedListNode();
+  }
+
+  let dummy = new LinkedListNode();
+  let tail = dummy;
+
+  while (list1 && list2) {
+    if (list1.val < list2.val) {
+      tail.next = list1;
+      list1 = list1.next;
+    } else {
+      tail.next = list2;
+      list2 = list2.next;
+    }
+
+    tail = tail.next;
+  }
+
+  if (list1) {
+    tail.next = list1;
+  } else if (list2) {
+    tail.next = list2;
+  }
+
+  return dummy.next;
+};
+
+var mergeKLists = function (lists) {
+  if (lists.length === 0) return [];
+
+  if (lists.length <= 2) {
+    return mergeTwoLists(lists[0], list[1]);
+  }
+
+  let head = mergeTwoLists(lists[0], lists[1]);
+  let dummy = head;
+
+  for (let i = 2; i < lists.length; i++) {
+    dummy = mergeTwoLists(dummy, lists[i]);
+  }
+  return dummy;
+};
+
 export {
   twoSum,
   addTwoNumbers,
@@ -614,4 +659,5 @@ export {
   removeNthFromEnd,
   swapPairs,
   fourSum,
+  mergeKLists,
 };

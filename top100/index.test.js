@@ -22,6 +22,7 @@ import {
   swapPairs,
   threeSum,
   threeSumClosest,
+  mergeKLists,
 } from "./";
 
 describe("1. Two Sum", () => {
@@ -258,6 +259,20 @@ describe("20. Valid Parentheses", () => {
     expect(isValid("()[]{}")).toBe(true);
     expect(isValid("(]")).toBe(false);
   });
+});
+
+test("23. Merge k Sorted Lists", () => {
+  let lists = [
+    [1, 4, 5],
+    [1, 3, 4],
+    [2, 6],
+  ];
+  let linkedLists = [];
+  const linkedList = new LinkedList();
+  lists.forEach((l) => linkedLists.push(linkedList.fromArray(l)));
+  expect(mergeKLists(linkedLists)).toStrictEqual(
+    linkedList.fromArray([1, 1, 2, 3, 4, 4, 5, 6])
+  );
 });
 
 test("24. Swap Nodes in Pairs", () => {
