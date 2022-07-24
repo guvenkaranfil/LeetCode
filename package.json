@@ -17,5 +17,6 @@
     "url": "git+https://github.com/guvenkaranfil/LeetCode.git"
   },
   "author": "guvenkaranfil",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {}
 }
