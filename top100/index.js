@@ -592,10 +592,6 @@ var fourSum = function (nums, target) {
 };
 
 var mergeTwoLists = function (list1, list2) {
-  if (!list2) {
-    liste2 = new LinkedListNode();
-  }
-
   let dummy = new LinkedListNode();
   let tail = dummy;
 
@@ -621,19 +617,19 @@ var mergeTwoLists = function (list1, list2) {
 };
 
 var mergeKLists = function (lists) {
-  if (lists.length === 0) return [];
+  if (!lists || lists.length === 0) return null;
 
-  if (lists.length <= 2) {
-    return mergeTwoLists(lists[0], list[1]);
+  while (lists.length > 1) {
+    let mergedLists = [];
+    for (let i = 0; i < lists.length; i += 2) {
+      let list1 = lists[i];
+      let list2 = i + 1 < lists.length ? lists[i + 1] : null;
+      mergedLists.push(mergeTwoLists(list1, list2));
+    }
+    lists = mergedLists;
   }
 
-  let head = mergeTwoLists(lists[0], lists[1]);
-  let dummy = head;
-
-  for (let i = 2; i < lists.length; i++) {
-    dummy = mergeTwoLists(dummy, lists[i]);
-  }
-  return dummy;
+  return lists[0];
 };
 
 export {
