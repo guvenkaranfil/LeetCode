@@ -2,6 +2,7 @@ import { LinkedList } from "../../dataStructures/linkedList";
 import {
   convert,
   findMedianSortedArrays,
+  fourSum,
   intToRoman,
   isMatch,
   isPalindrome,
@@ -204,4 +205,12 @@ test("24. Swap Nodes in Pairs", () => {
   const list1 = linkedList.fromArray([1, 2, 3, 4]);
   const resultLinkedList = linkedList.fromArray([2, 1, 4, 3]);
   expect(swapPairs(list1, 2)).toStrictEqual(resultLinkedList);
+});
+
+test("18. 4Sum", () => {
+  expect(fourSum([1, 0, -1, 0, -2, 2], 0)).toStrictEqual([
+    [1, 2, -2, -1],
+    [0, 2, -2, 0],
+    [0, 1, -1, 0],
+  ]);
 });
