@@ -73,10 +73,6 @@ describe("2. Add Two Numbers", () => {
   });
 });
 
-test("26. Remove Duplicates from Sorted Array", () => {
-  expect(removeDuplicates([1, 1, 2])).toBe(2);
-});
-
 describe("3. Longest Substring Without Repeating Characters", () => {
   test("should return longest non repeating character", () => {
     expect(lengthOfLongestSubstring("abcabcbb")).toBe(3);
@@ -219,14 +215,6 @@ describe("16. 3Sum Closest", () => {
   });
 });
 
-describe("20. Valid Parentheses", () => {
-  test("should check given parantheses are valid order or not", () => {
-    expect(isValid("()")).toBe(true);
-    expect(isValid("()[]{}")).toBe(true);
-    expect(isValid("(]")).toBe(false);
-  });
-});
-
 describe("17. Letter Combinations of a Phone Number", () => {
   test("should return possible letter combinations", () => {
     expect(letterCombinations("23")).toEqual([
@@ -245,6 +233,13 @@ describe("17. Letter Combinations of a Phone Number", () => {
   });
 });
 
+test("18. 4Sum", () => {
+  expect(fourSum([1, 0, -1, 0, -2, 2], 0)).toStrictEqual([
+    [1, 2, -2, -1],
+    [0, 2, -2, 0],
+    [0, 1, -1, 0],
+  ]);
+});
 test("19. Remove Nth Node From End of List", () => {
   const linkedList = new LinkedList();
   const list1 = linkedList.fromArray([1, 2, 3, 4, 5]);
@@ -257,6 +252,14 @@ test("19. Remove Nth Node From End of List", () => {
   expect(removeNthFromEnd(list2, 2)).toStrictEqual(resultLinkedList2);
 });
 
+describe("20. Valid Parentheses", () => {
+  test("should check given parantheses are valid order or not", () => {
+    expect(isValid("()")).toBe(true);
+    expect(isValid("()[]{}")).toBe(true);
+    expect(isValid("(]")).toBe(false);
+  });
+});
+
 test("24. Swap Nodes in Pairs", () => {
   const linkedList = new LinkedList();
   const list1 = linkedList.fromArray([1, 2, 3, 4]);
@@ -264,10 +267,6 @@ test("24. Swap Nodes in Pairs", () => {
   expect(swapPairs(list1, 2)).toStrictEqual(resultLinkedList);
 });
 
-test("18. 4Sum", () => {
-  expect(fourSum([1, 0, -1, 0, -2, 2], 0)).toStrictEqual([
-    [1, 2, -2, -1],
-    [0, 2, -2, 0],
-    [0, 1, -1, 0],
-  ]);
+test("26. Remove Duplicates from Sorted Array", () => {
+  expect(removeDuplicates([1, 1, 2])).toBe(2);
 });
