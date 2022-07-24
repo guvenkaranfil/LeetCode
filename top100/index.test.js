@@ -23,6 +23,7 @@ import {
   threeSum,
   threeSumClosest,
   mergeKLists,
+  mergeTwoLists,
 } from "./";
 
 describe("1. Two Sum", () => {
@@ -259,6 +260,16 @@ describe("20. Valid Parentheses", () => {
     expect(isValid("()[]{}")).toBe(true);
     expect(isValid("(]")).toBe(false);
   });
+});
+test("21. Merge Two Sorted Lists", () => {
+  const linkedList = new LinkedList();
+
+  expect(
+    mergeTwoLists(
+      linkedList.fromArray([1, 2, 4]),
+      linkedList.fromArray([1, 3, 4])
+    )
+  ).toStrictEqual(linkedList.fromArray([1, 1, 2, 3, 4, 4]));
 });
 
 test("23. Merge k Sorted Lists", () => {

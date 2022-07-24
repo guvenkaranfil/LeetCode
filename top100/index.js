@@ -659,5 +659,6 @@ export {
   removeNthFromEnd,
   swapPairs,
   fourSum,
+  mergeTwoLists,
   mergeKLists,
 };
