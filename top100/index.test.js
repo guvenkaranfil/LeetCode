@@ -24,6 +24,7 @@ import {
   threeSumClosest,
   mergeKLists,
   mergeTwoLists,
+  searchRange,
 } from "./";
 
 describe("1. Two Sum", () => {
@@ -295,4 +296,9 @@ test("24. Swap Nodes in Pairs", () => {
 
 test("26. Remove Duplicates from Sorted Array", () => {
   expect(removeDuplicates([1, 1, 2])).toBe(2);
+});
+
+test("34. Find First and Last Position of Element in Sorted Array", () => {
+  expect(searchRange([5, 7, 7, 8, 8, 10], 8)).toStrictEqual([3, 4]);
+  expect(searchRange([5, 7, 7, 8, 8, 10], 6)).toStrictEqual([-1, -1]);
 });

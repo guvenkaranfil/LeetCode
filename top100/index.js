@@ -632,6 +632,33 @@ var mergeKLists = function (lists) {
   return lists[0];
 };
 
+var searchRange = function (nums, target) {
+  let start = 0;
+  let end = nums.length - 1;
+
+  while (start <= end) {
+    let middle = Math.floor((start + end) / 2);
+
+    if (nums[middle] === target) {
+      let minIndex = middle;
+      let maxIndex = middle;
+
+      while (nums[minIndex - 1] === target && nums[minIndex] === target)
+        minIndex--;
+      while (nums[maxIndex + 1] === target && nums[maxIndex] === target)
+        maxIndex++;
+
+      return [minIndex, maxIndex];
+    } else if (nums[middle] < target) {
+      start = middle + 1;
+    } else {
+      end = middle - 1;
+    }
+  }
+
+  return [-1, -1];
+};
+
 export {
   twoSum,
   addTwoNumbers,
@@ -657,4 +684,5 @@ export {
   fourSum,
   mergeTwoLists,
   mergeKLists,
+  searchRange,
 };
