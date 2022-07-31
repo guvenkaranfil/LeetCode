@@ -677,6 +677,27 @@ var searchInsert = function (nums, target) {
   return start;
 };
 
+var sortColors = function (nums) {
+  let l = 0;
+  let r = nums.length - 1;
+  let i = 0
+
+  while (i <= r) {
+    if (nums[i] === 2) {
+      nums[i] = nums[r]
+      nums[r] = 2
+      r--;
+    } else if (nums[i] === 0) {
+      nums[i] = nums[l]
+      nums[l] = 0
+      i++
+      l++
+    } else {
+      i++
+    }
+  }
+};
+
 export {
   twoSum,
   addTwoNumbers,
@@ -704,4 +725,5 @@ export {
   mergeKLists,
   searchRange,
   searchInsert,
+  sortColors
 };

@@ -26,6 +26,7 @@ import {
   mergeTwoLists,
   searchRange,
   searchInsert,
+  sortColors
 } from "./";
 
 describe("1. Two Sum", () => {
@@ -308,4 +309,10 @@ test("35. Search Insert Position", () => {
   expect(searchInsert([1, 3, 5, 6], 5)).toBe(2);
   expect(searchInsert([1, 3, 5, 6], 2)).toBe(1);
   expect(searchInsert([1, 3, 5, 6], 7)).toBe(4);
+});
+
+test("75. Sort Colors", () => {
+  let nums = [2, 0, 2, 1, 1, 2]
+  sortColors(nums)
+  expect(nums).toEqual([0, 1, 1, 2, 2, 2])
 });
