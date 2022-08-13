@@ -698,6 +698,28 @@ var sortColors = function (nums) {
   }
 };
 
+var countAndSay = function (n) {
+  const calculateNStrings = (step, digits) => {
+    if (step === n) { return digits }
+
+    let convertedDigits = ""
+    let runningDigit = digits[0];
+    let countRunningDigit = 1;
+    for (let index = 0; index < digits.length; index++) {
+      if (runningDigit != digits[index + 1]) {
+        convertedDigits += countRunningDigit + digits[index]
+        runningDigit = digits[index + 1]
+        countRunningDigit = 1;
+      } else {
+        countRunningDigit++;
+      }
+    }
+    return calculateNStrings(step + 1, convertedDigits);
+  }
+
+  return calculateNStrings(1, "1")
+};
+
 export {
   twoSum,
   addTwoNumbers,
@@ -725,5 +747,6 @@ export {
   mergeKLists,
   searchRange,
   searchInsert,
-  sortColors
+  sortColors,
+  countAndSay,
 };
